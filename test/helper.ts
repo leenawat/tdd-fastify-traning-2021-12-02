@@ -6,7 +6,7 @@ export function build() {
   const app = fastify()
 
   beforeAll(async () => {
-    app.register(fp(App))
+    app.register(fp(App));
     await app.ready()
   })
 

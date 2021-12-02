@@ -14,9 +14,7 @@
     "test:watch-verbose": "cross-env NODE_ENV=test jest --watch --runInBand --verbose",
     "start": "cross-env NODE_ENV=develop nodemon",
     "build:ts": "cross-env NODE_ENV=production tsc",
-    "eslint": "eslint src/**/*.ts",
-    "eslint:fix": "eslint --fix src/**/*.ts",
-    "lint-staged": "eslint --fix src/**/*.ts "
+    "lint-staged": "concurrently \"eslint --fix src/**/*.ts\" \"eslint --fix test/**/*.ts\""
   },
   "keywords": [],
   "author": "",
