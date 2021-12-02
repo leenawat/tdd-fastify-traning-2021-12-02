@@ -4,3 +4,9 @@
 ```bash
 $ npm run star
 ```
+
+## lint code
+```bash
+$ npx eslint --fix ./src/**/*.ts
+$ npx eslint --fix ./test/**/*.ts
+```

@@ -1,14 +1,28 @@
-import app from "./app"
+import fastify from 'fastify'
+import fp from 'fastify-plugin'
+import App from './app'
 
 const port = 8080
 
 const start = async () => {
-    try {
-        await app.listen(port)
-    } catch (error) {
-        app.log.error(error)
-        process.exit(0)
-    }
+  try {
+    const app = fastify({
+      logger: {
+        level: 'info',
+      },
+      ajv: {
+        customOptions: {
+          allErrors: true,
+        },
+      },
+      disableRequestLogging: true,
+    })
+    app.register(fp(App))
+    await app.listen(port)
+  } catch (error) {
+    console.log(error)
+    process.exit(0)
+  }
 }
 
 start()
