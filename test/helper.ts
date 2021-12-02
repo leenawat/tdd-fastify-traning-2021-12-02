@@ -7,7 +7,7 @@ export function build() {
 
   beforeAll(async () => {
     app.register(fp(App))
-    await app.ready();
+    await app.ready()
   })
 
   afterAll(() => app.close())
